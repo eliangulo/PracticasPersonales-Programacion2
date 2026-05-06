@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PracticasPersonales_Programacion2
 {
@@ -17,7 +18,21 @@ namespace PracticasPersonales_Programacion2
                 Nombre = nombre;
                 Precio = precio;
             }
-            public void MostrarInformacion()
+            public virtual void MostrarInformacion()
+            {
+                Console.WriteLine($"ID: {Id}, Nombre: {Nombre}, Precio: {Precio}");
+            }
+        }
+        public class ProductoDigital : Producto
+        {
+            public string Plataforma { get; set; }
+            public ProductoDigital(int id,  string nombre, int precio, string plataforma)
+                                    : base (id, nombre, precio)
+            {
+                
+                Plataforma = plataforma;
+            }
+            public override void MostrarInformacion()
             {
                 Console.WriteLine($"ID: {Id}, Nombre: {Nombre}, Precio: {Precio}");
             }

@@ -44,7 +44,12 @@ using static PracticasPersonales_Programacion2.Ejercicio_Constructores;
 //impresora.MostrarInformacion();
 
 //ejercicio constructores
-Producto p1 = new Producto(001,"Parlante", 10000);
-p1.MostrarInformacion();
-Producto p2 = new Producto(2, "Auriculares", 5000);
-p2.MostrarInformacion();
+//Producto p1 = new Producto(001,"Parlante", 10000);
+//p1.MostrarInformacion();
+//Producto p2 = new Producto(2, "Auriculares", 5000);
+//p2.MostrarInformacion();
+
+Producto p = new ProductoDigital(003, "Juego", 20000, "PC");
+p.MostrarInformacion();
+ProductoDigital pd = new ProductoDigital(004, "Juego", 20000, "PC");
+pd.MostrarInformacion();
