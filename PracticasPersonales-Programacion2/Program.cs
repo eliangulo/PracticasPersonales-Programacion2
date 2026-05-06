@@ -1,4 +1,5 @@
 ﻿using PracticasPersonales_Programacion2;
+using static PracticasPersonales_Programacion2.Ejercicio_Constructores;
 //using static PracticasPersonales_Programacion2.Ejercicio_Vehiculos;
 
 //Vehiculo vehiculo = new Vehiculo();
@@ -22,23 +23,28 @@
 //camion.MostrarInformacion();
 
 //ejercicio Dispositivos
-Dispositivo dispositivo = new Dispositivo();
-dispositivo.Id = 01;
-dispositivo.NumeroSerie = "12345";
-dispositivo.Marca = "MarcaX";
-dispositivo.MostrarInformacion();
+//Dispositivo dispositivo = new Dispositivo();
+//dispositivo.Id = 01;
+//dispositivo.NumeroSerie = "12345";
+//dispositivo.Marca = "MarcaX";
+//dispositivo.MostrarInformacion();
 
-Celular celular = new Celular();
-celular.Id = 02;
-celular.NumeroSerie = "12345";
-celular.Marca ="Sony";
-celular.SistemaOperativo = "Android";
-celular.MostrarInformacion();
+//Celular celular = new Celular();
+//celular.Id = 02;
+//celular.NumeroSerie = "12345";
+//celular.Marca ="Sony";
+//celular.SistemaOperativo = "Android";
+//celular.MostrarInformacion();
 
-Impresora impresora = new Impresora();
-impresora.Id = 02;
-impresora.NumeroSerie = "12345";
-impresora.Marca = "Sony";
-impresora.TipoImpresion = "Laser";
-impresora.MostrarInformacion();
+//Impresora impresora = new Impresora();
+//impresora.Id = 02;
+//impresora.NumeroSerie = "12345";
+//impresora.Marca = "Sony";
+//impresora.TipoImpresion = "Laser";
+//impresora.MostrarInformacion();
 
+//ejercicio constructores
+Producto p1 = new Producto(001,"Parlante", 10000);
+p1.MostrarInformacion();
+Producto p2 = new Producto(2, "Auriculares", 5000);
+p2.MostrarInformacion();
