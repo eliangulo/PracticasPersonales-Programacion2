@@ -34,7 +34,7 @@ namespace PracticasPersonales_Programacion2
             }
             public override void MostrarInformacion()
             {
-                Console.WriteLine($"ID: {Id}, Nombre: {Nombre}, Precio: {Precio}");
+                Console.WriteLine($"ID: {Id}, Nombre: {Nombre}, Precio: {Precio}, Plataforma: {Plataforma}");
             }
         }
     }
