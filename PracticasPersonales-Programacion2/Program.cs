@@ -49,7 +49,9 @@ using static PracticasPersonales_Programacion2.Ejercicio_Constructores;
 //Producto p2 = new Producto(2, "Auriculares", 5000);
 //p2.MostrarInformacion();
 
-Producto p = new ProductoDigital(003, "Juego", 20000, "PC");
-p.MostrarInformacion();
-ProductoDigital pd = new ProductoDigital(004, "Juego", 20000, "PC");
-pd.MostrarInformacion();
+//Producto p = new ProductoDigital(003, "Juego", 20000, "PC");
+//p.MostrarInformacion();
+//ProductoDigital pd = new ProductoDigital(004, "Juego", 20000, "PC");
+//pd.MostrarInformacion();
+
+linq_practica1 linq = new linq_practica1();
