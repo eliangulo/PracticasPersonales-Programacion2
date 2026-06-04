@@ -55,3 +55,4 @@ using static PracticasPersonales_Programacion2.Ejercicio_Constructores;
 //pd.MostrarInformacion();
 
 linq_practica1 linq = new linq_practica1();
+linq_practica2_alumnos linq2 = new linq_practica2_alumnos();

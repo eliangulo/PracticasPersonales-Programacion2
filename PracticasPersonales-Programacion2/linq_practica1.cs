@@ -23,7 +23,6 @@ namespace PracticasPersonales_Programacion2
                 .OrderBy(p => p.Precio)
                 .ToList();
 
-
             foreach (var item in productoMayoresA500)
             {
                 Console.WriteLine($"Lista de los productos con precio > a 500:" +
