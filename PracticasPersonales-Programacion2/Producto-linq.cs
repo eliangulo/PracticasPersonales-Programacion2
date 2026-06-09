@@ -19,6 +19,19 @@ namespace PracticasPersonales_Programacion2
           new Producto() { Cod = "05", Nombre = "Heladera", Categoria = "Electrodomestico", Precio = 1200, Stock = 5 },
           new Producto() { Cod = "06", Nombre = "Cafetera", Categoria = "Electrodomestico", Precio = 200, Stock = 30 },
         };
+        ProductoCategoria[] pCategoria = new ProductoCategoria[]
+        {
+            new ProductoCategoria()
+            {
+                Cod = "01", Categoria = "Tecnologia",
+                SubProductos =["laptop", "celular", "Tablet"]
+            },
+             new ProductoCategoria()
+            {
+                Cod = "02", Categoria = "Ropa",
+                SubProductos =["Campera", "Pantalon", "Camiseta"]
+            }
+        };
         public Producto_linq()
         {
             //Ejecicio1: Obtené una lista con todos los productos cuyo precio sea mayor a 500,
@@ -49,9 +62,9 @@ namespace PracticasPersonales_Programacion2
             //Ejercicio 4
 
             var listaProd = productos
-                .Where(p => p.Stock <20)
+                .Where(p => p.Stock < 20)
                 .OrderBy(p => p.Stock)
-                .Select (p => new
+                .Select(p => new
                 {
                     nombre = p.Nombre,
                     stock = p.Stock
@@ -93,6 +106,80 @@ namespace PracticasPersonales_Programacion2
                 .Where(p => p.Categoria == "Ropa").Average(P => P.Precio);
             Console.WriteLine($"Promedio total de la categoria ROPA: {promedioRopa}");
 
+
+            //Ejercicio 7
+            //Obtené una lista con el nombre y categoria de los productos cuyo precio esté entre 100 y 1000,
+            //ordenados alfabéticamente por nombre.Mostrá también por consola cuántos productos cumplen esa condición.
+            var prod = productos
+                .Where(p => p.Precio > 100 && p.Precio < 1000)
+                .Select(p => new
+                {
+                    nombre = p.Nombre,
+                    categoria = p.Categoria
+                }
+
+                ).OrderBy(p => p.nombre).ToList();
+
+            foreach (var item in prod)
+            {
+                Console.WriteLine($"{item.nombre}- {item.categoria}");
+            }
+
+            Console.WriteLine($"la suma de productos con el rango sugerido es: {prod.Count()}");
+
+            Console.WriteLine("-----------ejetcicio 8 -----------------------");
+            //Ejercicio 8
+            // usando ese array pCategoria, obtené una sola lista con todos los subproductos de todas
+            // las categorías usando SelectMany. Mostralos por consola
+            var todosProd = pCategoria.SelectMany(p => p.SubProductos).ToList();
+            foreach (var item in todosProd)
+            {
+                Console.WriteLine(item);
+            }
+            //Ejercicio 9
+            //Usando el array productos, obtené el primer producto que sea de categoría "Electrodomestico"
+            //y tenga un precio menor a 500. Mostrá su nombre y precio por consola.
+            var primerProd = productos
+                .Where(p => p.Categoria == "Electrodomestico" && p.Precio < 500)
+                .Select(p => new
+                {
+                    nombre = p.Nombre,
+                    precio = p.Precio
+                })
+                .FirstOrDefault();
+            Console.WriteLine($"nombre: {primerProd!.nombre}, precio: {primerProd.precio}");
+
+            //Ejercicio 10
+            //punto 1 -
+
+            var listElectro = productos
+                .Where(p => p.Categoria == "Tecnologia")
+                .Select(p => new
+                {
+                    nombre = p.Nombre,
+                    precio = p.Precio
+
+                })
+                .OrderBy(p => p.precio)
+                .ToList();
+            foreach (var item in listElectro)
+            {
+                Console.WriteLine($"{item.nombre} - ${item.precio}");
+            }
+            //punto 2 - 
+            var masBarato = productos
+                .Where(p => p.Categoria == "Tecnologia")
+                .MinBy(p => p.Precio);
+
+            Console.WriteLine($"El más barato: {masBarato!.Nombre} - ${masBarato.Precio}");
+
+
+            //punto 3 -
+
+            var promedio = productos.Where(p => p.Categoria == "Tecnologia")
+                .Average(p => p.Precio);
+            Console.WriteLine(promedio);
+
         }
     }
     public class Producto
@@ -102,5 +189,9 @@ namespace PracticasPersonales_Programacion2
         public string? Categoria { get; set; }
         public double Precio { get; set; }
         public int Stock { get; set; }
+    }
+    public class ProductoCategoria : Producto
+    {
+        public string[] SubProductos { get; set; } = [];
     }
 }
